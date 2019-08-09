@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>portfolio</title>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+  <header>
+    <img src="image/logo(black).png">
+    <ul>
+      <li><a href="">TOP</a></li>
+      <li><a href="">作品</a></li>
+    </ul>
+  </header>
+  <article>
+    <div id="tab" class="tab_container">
+      <tab-skill></tab-skill>
+      <select name="task_progress" size="1"
+        v-model="activeoption"
+      >
+        <option 
+          value="0">
+          {{task_progress[0]}}</option>
+        <option 
+          value="1">
+          {{task_progress[1]}}</option>
+        <option 
+          value="2">          
+          {{task_progress[2]}}</option>
+      </select>
+        <br>
+        {{activeoption}}
+
+        <table>
+        <tr>
+          <th>NO</th>
+          <th>学習項目</th>
+          <th>作品</th>
+          <th>進捗</th>
+        </tr>
+        <tr v-for="task in tasks"
+            v-if="task.progress_key===activeoption"
+        >
+
+            <td>{{task.No}}</td>
+            <td>{{task.list}}</td>
+            <td>{{task.url}}</td>
+            <td>{{task.progress}}</td>
+        </tr>
+        <tr v-for="task in tasks"
+            v-if="activeoption==='0'"
+        >
+
+            <td>{{task.No}}</td>
+            <td>{{task.list}}</td>
+            <td>{{task.url}}</td>
+            <td>{{task.progress}}</td>
+        </tr>
+        </table>        
+
+    </div>
+
+  </article>
+  <aside>
+
+  </aside>
+  <footer>
+
+
+  </footer>
+<script src="js/main.js"></script>
+</body>
+</html>
