@@ -12,7 +12,7 @@ var tabSkill={
                 number:'1',
                 study_item:'コーディング模写①',
                 title:'メルカリ模写',
-                url:'http://task.hibimosaku.jp/',
+                url:'./task/task/index.html',
                 is_finished:'true',
                 description:'レスポンス済み。画像は適当',
                 date:'2019/07/28',
@@ -21,7 +21,7 @@ var tabSkill={
                 number:'2',
                 study_item:'コーディング模写②',
                 title:'アップル模写',
-                url:'http://task2.hibimosaku.jp/',
+                url:'./task/task2/index.html',
                 is_finished:'true',
                 description:'レスポンス済み。画像は適当',
                 date:'2019/08/06',
@@ -31,26 +31,37 @@ var tabSkill={
                 study_item:'scss',
                 title:'-',
                 is_finished:'true',
-                description:'主に、ネスト・レスポンシブの@mixin',
+                description:'ネスト・レスポンシブをミックスイン',
                 date:'2019/07',
               },
+              {
+                number:'4',
+                study_item:'scss',
+                title:'-',
+                is_finished:'false',
+                description:'変数、演数、関数、制御ディレクティブ',
+                date:'',
+              },
+
           ],
           javascript:[
               {
                 number:'1',
-                study_item:'bbbb',
-                title:'mosaku',
+                study_item:'vue',
+                title:'当サイト',
                 url:'http://task.hibimosaku.jp/',
-                is_finished:'true',
-                description:'aaaaaaaaa',
+                is_finished:'false',
+                description:'タブ機能、表示の絞り込み',
+                date:'作業中',
               },
               {
                 number:'2',
-                study_item:'cccc',
+                study_item:'promise',
                 title:'mosaku',
-                url:'http://task.hibimosaku.jp/',
+                url:'',
                 is_finished:'false',
-                description:'aaaaaaaaa',
+                description:'基本・応用',
+                date:'作業中',
               },
               {
                 number:'3',
@@ -90,9 +101,9 @@ var tabSkill={
           other:[
             {
               number:'1',
-              study_item:'jjjj',
-              title:'mosaku',
-              url:'http://task.hibimosaku.jp/',
+              study_item:'git',
+              title:'gitに保存',
+              url:'https://github.com/hibimosaku/portfolio',
               is_finished:'true',
               description:'aaaaaaaaa',
             },
@@ -198,7 +209,7 @@ var tabSkill={
                     <td>{{task.number}}</td>
                     <td>{{task.study_item}}</td>
                     <td>{{task.description}}</td>
-                    <td><a v-bind:href="task.url">{{task.title}}</a></td>
+                    <td><a v-bind:href="task.url" target="_blank">{{task.title}}</a></td>
                     <td>{{task.date}}</td>
                   </tr>
               </table>        
@@ -324,7 +335,7 @@ var tabSkill={
                     <td>{{task.number}}</td>
                     <td>{{task.study_item}}</td>
                     <td>{{task.description}}</td>
-                    <td><a v-bind:href="task.url">{{task.title}}</a></td>
+                    <td><a v-bind:href="task.url" target="_blank">{{task.title}}</a></td>
                     <td>{{task.date}}</td>
                   </tr>
                   <tr v-for="task in tasks.other"
@@ -333,7 +344,7 @@ var tabSkill={
                     <td>{{task.number}}</td>
                     <td>{{task.study_item}}</td>
                     <td>{{task.description}}</td>
-                    <td><a v-bind:href="task.url">{{task.title}}</a></td>
+                    <td><a v-bind:href="task.url" target="_blank">{{task.title}}</a></td>
                     <td>{{task.date}}</td>
                   </tr>
               </table>        
