@@ -2,23 +2,33 @@
 var tabSkill={
   data:function(){
     return{
+      move:"none",
       activeTab:"tabs-1",
       task_progress:['すべて','完成','未完成'],
       activeoption:"0",
       tasks:
       { 
           coder:[
-              {
-                number:'1',
+            {
+              number:'1',
+              study_item:'旧ポートフォリオ',
+              title:'旧ポートフォリオ',
+              url:'http://portfolio.hibimosaku.jp/',
+              is_finished:'true',
+              description:'レスポンス済み。Bootstrapで作成。',
+              date:'2019/03',
+            },
+            {
+                number:'2',
                 study_item:'コーディング模写①',
                 title:'メルカリ模写',
                 url:'./task/task/index.html',
                 is_finished:'true',
-                description:'レスポンス済み。画像は適当',
+                description:'レスポンス済み。画像は適当あいうえおかきくあいうえっかｆｋづさふぉえうあｆｄｓかｌｆじゃｆさけこさしすせそたちつでと',
                 date:'2019/07/28',
               },
               {
-                number:'2',
+                number:'3',
                 study_item:'コーディング模写②',
                 title:'アップル模写',
                 url:'./task/task2/index.html',
@@ -27,7 +37,7 @@ var tabSkill={
                 date:'2019/08/06',
               },
               {
-                number:'3',
+                number:'4',
                 study_item:'scss',
                 title:'-',
                 is_finished:'true',
@@ -35,13 +45,30 @@ var tabSkill={
                 date:'2019/07',
               },
               {
-                number:'4',
+                number:'5',
+                study_item:'animate',
+                title:'当サイト',
+                is_finished:'true',
+                description:'タブを押したらテーブルにアニメーション',
+                date:'2019/08/12',
+              },
+              {
+                number:'6',
                 study_item:'scss',
                 title:'-',
                 is_finished:'false',
                 description:'変数、演数、関数、制御ディレクティブ',
                 date:'',
               },
+              {
+                number:'7',
+                study_item:'scss',
+                title:'-',
+                is_finished:'false',
+                description:'変数、演数、関数、制御ディレクティブ',
+                date:'',
+              },
+              
 
           ],
           javascript:[
@@ -102,18 +129,19 @@ var tabSkill={
             {
               number:'1',
               study_item:'git',
-              title:'gitに保存',
+              title:'gitで管理',
               url:'https://github.com/hibimosaku/portfolio',
               is_finished:'true',
-              description:'aaaaaaaaa',
+              description:'当サイトのソースコードを保存',
+              date:'日々更新',
             },
             {
               number:'2',
-              study_item:'scss',
-              title:'mosaku',
-              url:'http://task.hibimosaku.jp/',
+              study_item:'npm',
+              title:'-',
+              url:'-',
               is_finished:'false',
-              description:'aaaaaaaaa',
+              description:'-',
             },
             {
               number:'3',
@@ -126,9 +154,6 @@ var tabSkill={
         ],
         
       },
-  
-
-
     };
   },
   props:{
@@ -141,51 +166,61 @@ var tabSkill={
   },
   template:`
   <div>
-        <h2>スキル</h2>
         <ul class="tabs-menu">
+          <li></li>
           <li
             v-bind:class="{active:activeTab==='tabs-1'}"
-            v-on:click="activeTab='tabs-1'">
+            v-on:click="activeTab='tabs-1'"
+            v-on:click="move='animated slideInLeft slow'"
+            >
             コーダー
           </li>
           <li
             v-bind:class="{active:activeTab==='tabs-2'}"
-            v-on:click="activeTab='tabs-2'">
+            v-on:click="activeTab='tabs-2'"
+            v-on:click="move='animated slideInLeft fast'"
+            >
             Javascript
           </li>
           <li
             v-bind:class="{active:activeTab==='tabs-3'}"
-            v-on:click="activeTab='tabs-3'">
+            v-on:click="activeTab='tabs-3'"
+            v-on:click="move='animated slideInLeft faster'"
+            >
             PHP
           </li>
           <li
             v-bind:class="{active:activeTab==='tabs-4'}"
-            v-on:click="activeTab='tabs-4'">
+            v-on:click="activeTab='tabs-4'"
+            v-on:click="move='animated slideInRight delay-1s'"
+            >
             その他
           </li>
+          <li></li>
         </ul>
-        <hr>
         <section class="tabs-content">
           <div id="slide">
             <section v-show="activeTab ==='tabs-1'">
-
-
-
-              <select name="task_progress" size="1"
-                v-model="activeoption"
+            <div class="task_content">
+                <select name="task_progress" size="1"
+                  v-model="activeoption"
+                  class="task_progress"
+                >
+                  <option 
+                    value="0">
+                    {{task_progress[0]}}</option>
+                  <option 
+                    value="true">
+                    {{task_progress[1]}}</option>
+                  <option 
+                    value="false">          
+                    {{task_progress[2]}}</option>
+                </select>
+             </div>
+              <br>
+              <table
+                v-bind:class="move"
               >
-                <option 
-                  value="0">
-                  {{task_progress[0]}}</option>
-                <option 
-                  value="true">
-                  {{task_progress[1]}}</option>
-                <option 
-                  value="false">          
-                  {{task_progress[2]}}</option>
-              </select>
-                <br>
-              <table>
                   <tr>
                     <th>NO</th>
                     <th>学習項目</th>
@@ -217,21 +252,27 @@ var tabSkill={
             </section>
             <section v-show="activeTab ==='tabs-2'">
 
-              <select name="task_progress" size="1"
-                v-model="activeoption"
+            <div class="task_content">
+                <select name="task_progress" size="1"
+                  v-model="activeoption"
+                  class="task_progress"
+                >
+                  <option 
+                    value="0">
+                    {{task_progress[0]}}</option>
+                  <option 
+                    value="true">
+                    {{task_progress[1]}}</option>
+                  <option 
+                    value="false">          
+                    {{task_progress[2]}}</option>
+                </select>
+            </div>
+
+              <br>
+              <table
+                v-bind:class="move"
               >
-                <option 
-                  value="0">
-                  {{task_progress[0]}}</option>
-                <option 
-                  value="true">
-                  {{task_progress[1]}}</option>
-                <option 
-                  value="false">          
-                  {{task_progress[2]}}</option>
-              </select>
-                <br>
-              <table>
                   <tr>
                     <th>NO</th>
                     <th>学習項目</th>
@@ -262,21 +303,27 @@ var tabSkill={
             </section>
             <section v-show="activeTab ==='tabs-3'">
 
+            <div class="task_content">
                 <select name="task_progress" size="1"
-                v-model="activeoption"
-              >
-                <option 
-                  value="0">
-                  {{task_progress[0]}}</option>
-                <option 
-                  value="true">
-                  {{task_progress[1]}}</option>
-                <option 
-                  value="false">          
-                  {{task_progress[2]}}</option>
-              </select>
+                  v-model="activeoption"
+                  class="task_progress"
+                >
+                  <option 
+                    value="0">
+                    {{task_progress[0]}}</option>
+                  <option 
+                    value="true">
+                    {{task_progress[1]}}</option>
+                  <option 
+                    value="false">          
+                    {{task_progress[2]}}</option>
+                </select>
+              </div>
+
                 <br>
-              <table>
+              <table
+              v-bind:class="move"
+              >
                   <tr>
                     <th>NO</th>
                     <th>学習項目</th>
@@ -307,21 +354,27 @@ var tabSkill={
             </section>
             <section v-show="activeTab ==='tabs-4'">
 
+            <div class="task_content">
                 <select name="task_progress" size="1"
-                v-model="activeoption"
+                  v-model="activeoption"
+                  class="task_progress"
+                >
+                  <option 
+                    value="0">
+                    {{task_progress[0]}}</option>
+                  <option 
+                    value="true">
+                    {{task_progress[1]}}</option>
+                  <option 
+                    value="false">          
+                    {{task_progress[2]}}</option>
+                </select>
+              </div>
+
+              <br>
+              <table
+              v-bind:class="move"
               >
-                <option 
-                  value="0">
-                  {{task_progress[0]}}</option>
-                <option 
-                  value="true">
-                  {{task_progress[1]}}</option>
-                <option 
-                  value="false">          
-                  {{task_progress[2]}}</option>
-              </select>
-                <br>
-              <table>
                   <tr>
                     <th>NO</th>
                     <th>学習項目</th>
