@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>ログイン</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/firebase.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <div>
+<div id="log">
+<header>
+    <div class="header_top">
+      <div clss="sign-top">
+      <h1><img src="image/logo(black).png"></h1>
+      </div>
+      <!--<form>-->
+      <div class="sign">
+        <label>メ　ー　ル：
+            <input type="email" name="email" size="15"
+              v-model="email"
+            >
+        </label><br>
+        <label>パスワード：
+            <input type="password" name="password" size="15"
+              v-model="password"
+            >
+        </label><br>
+        <button 
+          v-on:click="signin"
+        >ログイン</button>
+        <button 
+        v-on:click="signup"
+      >新規登録</button>
+      {{sign}}
+      {{sigan}}
+        <!--</form>-->
+      </div>
+    </div>
+</header>
+<article>
+  <h2
+  v-show="sign==='login'"
+  >表示成功！！！</h2>
+  <table>
+    <tr>
+      <th>NO</th>
+      <th>学習項目</th>
+      <th>内容</th>
+      <th>作品</th>
+      <th>完了日付</th>
+    </tr>
+    <tr
+     v-for= "list in booklistss"
+    >
+      <th>NO</th>
+      <th>学習項目{{list.studyitem}}</th>
+      <th>内容</th>
+      <th>作品</th>
+      <th>完了日付</th>   
+    </tr>
+  </table>
+  {{datadisplay}}
+  <h2>新規登録</h2>
+    <div>
+      学習項目：<input type="text" placeholder="学習項目"　v-model="stydyitem"><br>
+      作　　品：<input type="text" placeholder="作品" v-model="title"><br>
+     <!-- U  R  L：<input v-model="url" type="text" placeholder="url" /><br>
+      進　　捗<input v-model="is_finished" type="text" placeholder="is_finished" /><br>
+      -->
+      内　　容<input  type="text" placeholder="内容" v-model="description"><br>
+      <!--
+      日　　付<input v-model="date" type="text" placeholder="date" /><br>
+      -->
+      <button 
+        v-on:click="dataup">登録</button>
+      </div>
+      {{stydyitem}}
+      {{title}}
+      {{description}}
+
+</article>
+</div>
+</div>
+<!-- Firebaseのセットアップコード（以下のSDKのバージョンは3.2.1） -->
+<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+<!-- apiKeyなどは、ご自身の環境のものに合わせてください -->
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDG8ZqB-ezbG3xLjep_HDGPpHDBkoUergE",
+    authDomain: "todolist-576c4.firebaseapp.com",
+    databaseURL: "https://todolist-576c4.firebaseio.com",
+    storageBucket: "todolist-576c4.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="js/firebase.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "coord":
+  {
+    "lon":135.5,
+    "lat":34.69
+  },
+  "weather":
+    [{
+      "id":803,
+      "main":"Clouds",
+      "description":"broken clouds",
+      "icon":"04n"
+    }],
+  "base":"stations",
+  "main":
+    {
+      "temp":303.48,
+      "pressure":1002,
+      "humidity":70,
+      "temp_min":302.59,
+      "temp_max":304.26
+    },
+    "visibility":10000,
+    "wind":
+    {
+      "speed":8.7,"deg":60
+    },
+    "clouds":
+    {
+      "all":75
+    },
+    "dt":1565697940,
+    "sys":
+    {
+      "type":1,
+      "id":7962,
+      "message":0.0124,
+      "country":"JP",
+      "sunrise":1565640988,
+      "sunset":1565689782
+    },
+      "timezone":32400,
+      "id":1853909,
+      "name":"Osaka-shi",
+      "cod":200
+}

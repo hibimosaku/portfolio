@@ -84,10 +84,10 @@ var tabSkill={
               {
                 number:'2',
                 study_item:'promise',
-                title:'mosaku',
-                url:'',
+                title:'promise',
+                url:'task/promise/promise.html',
                 is_finished:'false',
-                description:'基本・応用',
+                description:'マークダウン記法で入力。',
                 date:'作業中',
               },
               {
@@ -100,30 +100,6 @@ var tabSkill={
               },
           ],
           php:[
-              {
-                number:'1',
-                study_item:'eeee',
-                title:'mosaku',
-                url:'http://task.hibimosaku.jp/',
-                is_finished:'true',
-                description:'aaaaaaaaa',
-              },
-              {
-                number:'2',
-                study_item:'scss',
-                title:'mosaku',
-                url:'http://task.hibimosaku.jp/',
-                is_finished:'false',
-                description:'aaaaaaaaa',
-              },
-              {
-                number:'3',
-                study_item:'scss',
-                title:'mosaku',
-                url:'http://task.hibimosaku.jp/',
-                is_finished:'true',
-                description:'aaaaaaaaa',
-              },
           ],
           other:[
             {
@@ -163,6 +139,9 @@ var tabSkill={
 
   },
   methods:{
+    coder_click(){
+      alert("click")
+    }
   },
   template:`
   <div>
@@ -172,6 +151,7 @@ var tabSkill={
             v-bind:class="{active:activeTab==='tabs-1'}"
             v-on:click="activeTab='tabs-1'"
             v-on:click="move='animated slideInLeft slow'"
+            v-on:click="coder_click"
             >
             コーダー
           </li>
@@ -295,11 +275,10 @@ var tabSkill={
                     <td>{{task.number}}</td>
                     <td>{{task.study_item}}</td>
                     <td>{{task.description}}</td>
-                    <td><a v-bind:href="task.url">{{task.title}}</a></td>
+                    <td><a v-bind:href="task.url" target="_blank">{{task.title}}</a></td>
                     <td>{{task.date}}</td>
                   </tr>
               </table>        
-
             </section>
             <section v-show="activeTab ==='tabs-3'">
 
@@ -337,7 +316,7 @@ var tabSkill={
                     <td>{{task.number}}</td>
                     <td>{{task.study_item}}</td>
                     <td>{{task.description}}</td>
-                    <td><a v-bind:href="task.url">{{task.title}}</a></td>
+                    <td><a v-bind:href="task.url" target="_blank">{{task.title}}</a></td>
                     <td>{{task.date}}</td>
                   </tr>
                   <tr v-for="task in tasks.php"
@@ -350,7 +329,6 @@ var tabSkill={
                     <td>{{task.date}}</td>
                   </tr>
               </table>        
-
             </section>
             <section v-show="activeTab ==='tabs-4'">
 
@@ -401,13 +379,10 @@ var tabSkill={
                     <td>{{task.date}}</td>
                   </tr>
               </table>        
-
-
-
             </section>
           </div>
         </section>
-    </div>
+  </div>
   `
 
 };

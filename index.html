@@ -8,17 +8,25 @@
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/animate.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
-  <header>
+  <header id="weather">
     <div class="header_top">
       <h1><img src="image/logo(black).png"></h1>
       <ul>
-        <li><a href="">TOP</a></li>
-        <li><a href="">aaaa</a></li>
+        <li
+          v-on:click="clicka"
+        ><a href="">TOP</a></li>
+        <li><a href="firebase.html"
+          v-on:click="alert"
+          >????</a></li>
       </ul>
+      <img class="icon" v-bind:src="icon_url">
+      <a href="https://hirokukadai.herokuapp.com/">aaaab</a>
+      {{weather}}
+      {{}}
     </div>
   </header>
   <article>
