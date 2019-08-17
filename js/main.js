@@ -100,6 +100,15 @@ var tabSkill={
               },
           ],
           php:[
+            {
+              number:'1',
+              study_item:'php',
+              title:'当サイト',
+              url:'php/join/index.php',
+              is_finished:'false',
+              description:'form情報の取得・検索、DBでの一覧、詳細、編集、削除',
+              date:'作業中',
+            },
           ],
           other:[
             {
