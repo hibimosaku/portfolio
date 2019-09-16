@@ -1,5 +1,45 @@
-var num=5;
-function aaa(num){
-  return num*5;
-}
-console.log(aaa(5));
+// $(document).ready(function() {
+//   // animatedクラスの付いた要素にwaypointを登録
+//   $(".animated").waypoint({
+//     handler: function(direction) {
+//       // 要素が画面中央に来るとここが実行される
+//       if (direction === "down") { // 下方向のスクロール
+//         // イベント発生元の要素にfadeInUpクラスを付けることで
+//         // アニメーションを開始
+//         $(this.element).addClass("fadeInUp");
+
+//         // waypointを削除することで、この要素に対しては
+//         // これ以降handlerが呼ばれなくなる
+//         this.destroy();
+//       }
+//     },
+
+//     // 要素が画面中央に来たらhandlerを実行
+//     offset: "50%"
+//   });
+// });
+new Vue({
+  el:"#app",
+  data:{
+    hello:'おはよう',
+  },
+  created:{
+    animated();
+  },
+  methods:{
+    animated:function(){
+      if (direction === "down") { // 下方向のスクロール
+        // イベント発生元の要素にfadeInUpクラスを付けることで
+        // アニメーションを開始
+        $(this.element).addClass("fadeInUp");
+
+        // waypointを削除することで、この要素に対しては
+        // これ以降handlerが呼ばれなくなる
+        this.destroy();
+      }
+    },
+
+    // 要素が画面中央に来たらhandlerを実行
+    offset: "50%"
+  },
+  })

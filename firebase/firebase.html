@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>firebase</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="firebase.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <div id="log">
+    <header>
+        <div class="header_top">
+            <div clss="sign-top">
+              <h1><img src="../image/logo(black).png"></h1>
+            </div>
+            <ul class="header_link">
+              <li><a href="../index.html">TOP</a></li>
+            </ul>
+            <div class="sign">
+                <label>メ　ー　ル：
+                  <input type="email" name="email" size="15"
+                    v-model="email"
+                  >
+                </label><br>
+                <label>パスワード：
+                  <input type="password" name="password" size="15"
+                    v-model="password"
+                  >
+                </label><br>
+                <button class="btn"
+                  v-on:click="signin">
+                  ログイン
+                </button>
+                <button class="btn"
+                  v-on:click="signup"
+                  >新規登録
+                </button>
+                <button class="btn"
+                    v-on:click="signout"
+                    >ログアウト
+                </button>
+            </div>
+        </div>
+        <p class="pw">メール：test@test.com<br>パスワード：123456</p>
+    </header>
+    <article
+      v-show="sign==='login'"
+    >
+      <section class="conA">
+          <div class="article_save">
+              <h2 class="article_login">登録TODOリスト</h2>
+              <table>
+                    <tr class="table_first">
+                      <th class="change-stydyitem">学習項目</th>
+                      <th class="change-title">作品</th>
+                      <th class="change-description">内容</th>
+                      <th v-if="changebtn=='after'" 
+                        class="change-after">更新</th>
+                      <th v-else
+                         class="change-btn">更新</th>
+
+                      <th class="change-btn">削除</th>
+                      
+                    </tr>  
+                    <tr v-for= "(item,key) in todolist">
+                    
+                      <td v-if="changeUpdate=='after'+key" class="change-stydyitem" >
+                        <input type="text"
+                        v-model="item.stydyitem"
+                        >
+                      </td>
+                      <td v-else class="change-stydyitem">{{item.stydyitem}}</th>
+                      
+
+                      <td v-if="changeUpdate=='after'+key" class="change-title">
+                        <input type="text"
+                        v-model="item.title"
+                        >
+                      </td>
+                      <td v-else class="change-title">{{item.title}}</th>
+          
+                      <td v-if="changeUpdate=='after'+key" class="change-description">
+                        <input type="text" 
+                        v-model="item.description"
+                        >
+                      </td>
+                      <td v-else class="change-description">{{item.description}}</th>
+
+            
+                      <td 
+                        v-if="changeUpdate=='after'+key"
+                        class="change-after"
+                      >
+                        <input type="button" value="実行" class="btn" 
+                          v-on:click="dataUpdate(item,key)"
+                        >
+                        <input type="button" value="戻る" class="btn"
+                          v-on:click="changeReturn"
+                      >
+
+                      </td>
+
+                      <td  v-else class="change-btn">
+                        <input type="button" value="更新" class="btn"
+                          v-on:click="change(key)">
+                      </td>
+
+                      <td class="change-btn">
+                        <input type="button" value="削除" class="btn"
+                          v-on:click="dataDelete(key)">
+                      </td> 
+                    </tr>
+              </table>
+          </div>
+        </section>  
+        
+        <section class="conB">
+          <h2>新規登録</h2>
+            <div>
+                学習項目：<input type="text" placeholder="学習項目"　v-model="stydyitem"><br>
+                作　　品：<input type="text" placeholder="作品名" v-model="title"><br>
+                U  R  L ：<input v-model="url" type="text" placeholder="作品のURL" /><br>
+                <!-- 進　　捗<input v-model="is_finished" type="text" placeholder="is_finished" /><br> -->
+                内　　容<input  type="text" placeholder="内容" v-model="description"><br>  
+                <!-- 条件文で、進捗[完成,作業中,未着手] で、完成の場合は日付を入力させる-->
+                <!-- 進　　捗<input v-model="date" type="text" placeholder="完了日付" /><br> -->
+              
+                <button class="btn"
+                  v-on:click="dataup">登録
+                </button>       
+            </div>
+        </section>  
+
+        <section class="conC">
+          <h2>検索（内容）</h2>
+          <div>
+              <input type="text"
+                v-model="search"
+              >
+              <button class="btn"
+                v-on:click="dataSearch(search)">
+                検索
+              </button>
+              <table>
+                <tr class="table_first">
+                  <th>学習項目</th>
+                  <th>作品</th>
+                  <th>内容</th>
+                  
+                </tr>  
+                <tr v-for= "item1 in result"> 
+                  <th>{{item1.stydyitem}}</th>
+                  <th>{{item1.title}}</th>
+                  <th>{{item1.description}}</th>
+                </tr>
+              </table>
+            </div>
+        </section>  
+    </article>
+  </div>
+  <!-- Firebaseのセットアップコード（以下のSDKのバージョンは3.2.1） -->
+  <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+  <!-- apiKeyなどは、ご自身の環境のものに合わせてください -->
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDG8ZqB-ezbG3xLjep_HDGPpHDBkoUergE",
+      authDomain: "todolist-576c4.firebaseapp.com",
+      databaseURL: "https://todolist-576c4.firebaseio.com",
+      storageBucket: "todolist-576c4.appspot.com",
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="firebase.js"></script>
+
+</body>
+</html>

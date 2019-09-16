@@ -1,0 +1,142 @@
+@import "../css/common";
+body{
+  box-sizing: border-box;
+  margin:0 20px 0 20px ;
+  hr{
+    border-bottom: 5px solid black;
+  }
+}
+a{
+  color:rgb(26, 61, 156);
+  text-decoration: none;
+}
+h2{
+  font-size:20px;
+  font-weight: 700;
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: black;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px black;/*左線*/
+}
+.btn{
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: black;
+  background: #ECECEC;
+  transition: .4s;
+  &:hover{
+    background: black;
+    color: white;
+  }
+
+}
+  
+/***********************************************
+ヘッダー
+************************************************/
+header{
+  margin:40px auto 10px auto;
+  max-width:1200px;
+  .header_top{
+    display: flex;
+    justify-content: space-between;
+  }
+  input{
+    margin-bottom:5px;
+  }
+  li{
+    margin-top:10px;
+    font-size:20px;
+  }
+  .pw{
+    margin-top:10px;
+    text-align: right;
+  }
+}
+/* *******************
+article
+**********************/
+article{
+  margin:0 auto 0 auto;
+  max-width:1000px;
+}
+
+/* *******************
+conA
+**********************/
+.conA{
+  table{
+    margin-top:10px;
+    border:1px solid black;
+    table-layout: fixed;
+    width:100%;
+    input{
+      width:100%;
+    }
+    .a{
+      width:10px;
+    }
+    th{
+      padding:20px 20px 20px 10px  ;
+      border:1px solid black;
+      margin:0 0 0 0 ;
+      text-align: left;
+
+
+    }
+    td{
+      border:1px solid black;
+      margin:0 0 0 0 ;
+      padding:10px  ;
+    }
+    .change-stydyitem{
+      width:80px;
+
+    }
+    .change-title{
+      width:70px;
+    }
+    .change-btn{
+      width:70px;
+      padding:10px;
+      text-align: center;
+    }
+    .change-after{
+      width:70px;
+      .btn{
+        width:37px;
+        padding: 5px 0px;
+        font-size:10px;
+        transition: 0s;
+      }
+    }
+  }
+  h2{
+    margin-top:20px;
+  }
+}
+
+/* *******************
+conB
+**********************/
+.conB{
+  margin-top:10px;
+  div{
+    margin-top:10px;
+  }
+}
+
+
+
+/* *******************
+conC
+**********************/
+.conC{
+  margin-top:30px;
+  div{
+    margin-top:10px;
+  }
+}

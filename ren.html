@@ -3,13 +3,58 @@
 <head>
 <meta charset="Utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>portfolio</title>
+<title>練習</title>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animate.css">
+<style>
+    body {
+      background: repeating-linear-gradient(
+        0deg,
+        #ffffff,
+        #ffffff 40px,
+        #dedede 40px,
+        #dedede 80px
+      );
+    }
+    .boxes {
+      margin: 80vh auto;
+    }
+    .box {
+      border: 1px solid #000;
+      width: 10em;
+      padding: 10px;
+      margin: 2em auto;
+      text-align: center;
+    }
+  
+    .animated {
+      /* ??????? */
+      opacity: 0;
+    }
+    </style>
 
 </head>
 <body>
-<script src="ren.js"></script>
+  <div id="app">
+    {{hello}}
+      <div class="boxes">
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+          <div v-bind:class="[box,animated]">box</div>
+
+        </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="jquery.waypoints.min.js"></script>
+  <script src="ren.js"></script>
 
 </body>
 </html>

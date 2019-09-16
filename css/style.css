@@ -4,8 +4,13 @@ body {
           box-sizing: border-box;
 }
 
-body hr {
+hr {
   border-bottom: 5px solid black;
+}
+
+a {
+  color: #1a3d9c;
+  text-decoration: none;
 }
 
 /*----------------------------------------------
@@ -21,18 +26,35 @@ header .header_top {
   margin: 20px 10px;
 }
 
-header ul {
+header .header_link {
   padding: 18px 0;
+}
+
+header .header_link li {
+  margin: 0 20px;
+  font-size: 20px;
 }
 
 header li {
   display: inline-block;
 }
 
-header .icon {
+header .weather_guide {
+  padding: 15px;
+}
+
+header .weather_guide li {
+  display: block;
+}
+
+header .weather_guide li:nth-child(2n) {
+  text-align: center;
+}
+
+header .weather_guide .icon {
   width: 50px;
   height: 50px;
-  background-color: black;
+  background-color: #cecece;
 }
 
 /*----------------------------------------------
@@ -57,11 +79,6 @@ header .icon {
 
 .tabs-menu li:first-child {
   padding: 10px;
-}
-
-.tabs-menu li:last-child {
-  width: 10px;
-  padding: 0;
 }
 
 /* タブの基本スタイル */
@@ -95,18 +112,19 @@ header .icon {
 }
 
 /* タブにマウスを乗せたらカーソルの形を変える */
-.tabs-menu li:hover {
-  cursor: pointer;
+/* 非選択のタブにマウスを乗せたら色を変える */
+.tabs-menu li:not(.active):hover {
+  background-color: #e7e7e7;
+  -webkit-transition: background-color 2.5s;
+  transition: background-color 2.5s;
 }
 
-/* 非選択のタブにマウスを乗せたら色を変える */
 /* 選択中のタブ */
 .tabs-menu .active {
   background-color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom-color: white;
 }
 
 .tabs-menu .active {
@@ -236,5 +254,117 @@ table td:nth-child(2n) {
 footer {
   margin-top: 20px;
   text-align: center;
+}
+
+/*----------------------------------------------
+tooltip
+-----------------------------------------------*/
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+}
+
+.tooltip .tooltip-inner {
+  background: black;
+  color: white;
+  border-radius: 16px;
+  padding: 5px 10px 4px;
+}
+
+.tooltip .tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  border-color: black;
+  z-index: 1;
+}
+
+.tooltip[x-placement^="top"] {
+  margin-bottom: 5px;
+}
+
+.tooltip[x-placement^="top"] .tooltip-arrow {
+  border-width: 5px 5px 0 5px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^="bottom"] {
+  margin-top: 5px;
+}
+
+.tooltip[x-placement^="bottom"] .tooltip-arrow {
+  border-width: 0 5px 5px 5px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^="right"] {
+  margin-left: 5px;
+}
+
+.tooltip[x-placement^="right"] .tooltip-arrow {
+  border-width: 5px 5px 5px 0;
+  border-left-color: transparent !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip[x-placement^="left"] {
+  margin-right: 5px;
+}
+
+.tooltip[x-placement^="left"] .tooltip-arrow {
+  border-width: 5px 0 5px 5px;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip.popover .popover-inner {
+  background: #f9f9f9;
+  color: black;
+  padding: 24px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip.popover .popover-arrow {
+  border-color: #f9f9f9;
+}
+
+.tooltip[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity .15s, visibility .15s;
+  transition: opacity .15s, visibility .15s;
+}
+
+.tooltip[aria-hidden='false'] {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity .15s;
+  transition: opacity .15s;
 }
 /*# sourceMappingURL=style.css.map */

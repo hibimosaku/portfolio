@@ -6,8 +6,8 @@ greeting:'おはよう',
 created:function(){
   var vm=this;
   vm.createPromise(2000,true)
-    .then(()=>onsole.log('1回目成功'))
-    .catch(()=>console.error('2回目失敗'))
+    .then(()=>alert('1回目成功'))
+    .catch(()=>alert('2回目失敗'))
 
   vm.createPromise(3000,false)
     .then(()=>console.log('2回目成功'))

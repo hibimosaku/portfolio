@@ -15,23 +15,23 @@
   <header id="weather">
     <div class="header_top">
       <h1><img src="image/logo(black).png"></h1>
-      <ul>
+      <ul class="header_link">
         <li
-          v-on:click="clicka"
         ><a href="">TOP</a></li>
-        <li><a href="firebase.html"
-          v-on:click="alert"
-          >????</a></li>
+        <li><a href="firebase/firebase.html" target="_blank"
+          v-on:click="alert"   v-tooltip.bottom="'firebaseで作成したtodoリストのリンク'"
+          >firebaseで作成</a></li>
       </ul>
-      <img class="icon" v-bind:src="icon_url">
-      <a href="https://hirokukadai.herokuapp.com/">aaaab</a>
-      {{weather}}
-      {{}}
+      <ul  class="weather_guide">
+        <li>現在の大阪</li>
+        {{today}}
+        <li><img class="icon" v-bind:src="icon_url"></li>
+      </ul>
     </div>
   </header>
   <article>
     <div id="tab" class="tab_container">
-      <tab-skill></tab-skill>
+        <tab-skill></tab-skill>
     </div>
 
   </article>
@@ -42,8 +42,10 @@
   <footer>
     <small>Copyright c 2018 hibimosaku All Rights Reserved.</small>
   </footer>
-<script src="js/main.js"></script>
-<script src="js/weather.js"></script>
+<script src="main.js"></script>
+<script src="weather/weather.js"></script>
+<script src="https://unpkg.com/v-tooltip"></script>
+
 
 </body>
 </html>
