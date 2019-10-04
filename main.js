@@ -73,7 +73,7 @@ var tabSkill={
                 number:1,
                 study_item:'vue',
                 title:'当サイト',
-                url:'task.hibimosaku.jp/',
+                url:'',
                 is_finished:"true",
                 description:'タブ機能、表示の絞り込み',
                 date:'2019/09/15',

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <title>Document</title>
+</head>
+<body>
+ <div id="app">
+   {{hello}}
+   <!--タブ  -->
+    <header>
+      <ul>
+
+        <li v-on:mouseover="activeTab='display1'"
+        >test1</li>
+        <li v-on:mouseover="activeTab='display2'"
+        >test2</li>
+        <li v-on:mouseover="activeTab='display3'"
+        >test3</li>
+        <li v-on:mouseover="activeTab='display4'"
+        >test4</li>
+
+
+
+
+      </ul>
+      <div>
+        <transition>
+            <p class="head1"
+            v-if="activeTab==='display1'"
+          >test1詳細</p>
+          <p class="head2"
+          v-if="activeTab==='display2'"
+          >test2詳細</p>
+          <p class="head3"
+          v-if="activeTab==='display3'"
+          >test3詳細</p>
+          <p class="head4"
+          v-if="activeTab==='display4'"
+          >test4詳細</p>
+  
+        </transition>
+
+      </div>
+
+
+    </header>
+
+
+
+   <!-- モーダルとスライド -->
+   <div class="slideAll">
+    <button
+      v-on:click="slide=!slide"
+      v-on:mouseover="modalButton=!modalButton"
+      v-on:mousleave="modalButton=!modalButton"
+
+      >スライド
+    </button>
+    <h3>うまくいかず<br>
+      ①スライドボタンにカーソルあてたときに、画面に表示される。<br>
+      そして、カーソルが、ボタンと表示された画面以外の場所に移動したら、<br>画面を閉じたいが、
+      うまくいかず。<br>
+      ②スライドボタンを押すと、左からスライドさせる。<br>
+      　このスライドを、スクロールされたときにしたいが、方法がわからない。
+    </h3>
+ 
+    <div
+      v-if="modalButton"
+      v-on:mouseleave="modalButton=!modalButton"
+      >
+      <p class="modalButton"></p>
+
+    </div>
+
+</div>
+    <transition name="slider">
+          <p class="sli" v-if="slide" key="aaa">左からスライド</p>
+          
+          <!-- <p v-else key="bbb">表示</p> -->
+  
+
+    </transition>
+
+
+ </div> 
+ <script src="main.js"></script>
+</body>
+</html>

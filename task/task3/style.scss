@@ -1,0 +1,118 @@
+// タブ
+ul{
+  display: flex;
+  background-color: aqua;
+  width:100%;
+  margin:0;
+  li{
+    margin:10px;
+    width:18%;
+    list-style-type:none;
+  }
+}
+.head1{
+  background-color: rgb(247, 247, 12);
+  height:100px;
+  width:1000px;
+  margin:0;
+  z-index:2;
+  position:fixed;
+  // top:0;
+  // left:0;
+}
+.head2{
+  background-color: rgb(12, 247, 235);
+  height:100px;
+  width:1000px;
+
+  margin:0;
+  z-index:2;
+  position:fixed;
+
+}
+.head3{
+  background-color: rgba(0,0,0,0.45);
+  height:100px;
+  width:1000px;
+
+  margin:0;
+  z-index:2;
+  position:fixed;
+
+}
+.head4{
+  background-color: rgb(12, 16, 247);
+  height:100px;
+  width:1000px;
+
+  margin:0;
+  z-index:2;
+  position:fixed;
+
+}
+// モーダル
+
+.slideAll{
+  position: relative;
+  .modalButton{
+    background-color: aqua;
+    width:200px;
+    height: 100px;
+    // z-index:2;
+    position: absolute;
+    top:280px;
+    left:70px;
+  
+  
+  }}
+
+// スライド
+button{
+  margin-top:300px;
+
+  
+}
+.sli{
+  background:blue;
+  width:500px;
+  height:200px;
+  margin-left:20px;
+  
+}
+.slider-enter{
+    // transform:translateX(-100%);
+    // transform: translateX(-100vw) translateX(0px)
+  }
+.slider-enter-active{
+  // animation: slide-in 1.5s reverse;
+  animation: slide-in 1.5s;
+  // transform: translate(0px, 0px);
+  // transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+.slider-enter-to{
+    // transform:translateX(0);
+}
+.slider-leave{
+    // transform:translateX(0);
+
+}
+.slider-leave-active{
+  animation: slide-in 1.5s reverse;
+  // transform: translate(0px, 0px);
+  // transition: transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+}
+.slider-leave-to{
+  // transform:translateX(-100%);
+  // transform: translateX(-100vw) translateX(0px)
+  
+}
+@keyframes slide-in{
+  from{
+    transform:translateX(-100%);
+    opacity:0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}

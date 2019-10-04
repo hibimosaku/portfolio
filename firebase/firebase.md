@@ -19,3 +19,7 @@ v-modelの場所を変えたらいけた
         description:'this.description'
         
       });
+
+##pushとsetの違い
+push・・・データのリストに追加。IDが生成される
+set・・・定義済みのパスへのデータ書き込みや、データの置換を行います。

@@ -28,7 +28,7 @@ new Vue({
         vm.sign='login';
         firebase.database().ref("todolists").on("value", function(snapshot) { 
           if(snapshot.val() != null) {  
-            vm.todolist =  snapshot.val();         
+            vm.todolist =  snapshot.val(); //      
             console.log('成功');
 
           }else{
@@ -127,8 +127,7 @@ new Vue({
       vm.todolist_search=Object.entries(vm.todolist);//オブジェクトの配列化 
       vm.result=vm.todolist_search.filter((value,index,array)=>{
         return Object.values(value[1]).join("").match(search);
-      }).map((x)=>x[1]);
-     
+      }).map((x)=>x[1]); 
     },
     //ボタンの切り替え
     change:function(key){
@@ -140,8 +139,5 @@ new Vue({
       var vm=this;
       vm.changeUpdate='before';
     },
-
-
-
 }
 });

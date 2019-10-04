@@ -38,18 +38,15 @@
 </head>
 <body>
   <div id="app">
-    {{hello}}
-      <div class="boxes">
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
-          <div v-bind:class="[box,animated]">box</div>
+      {{hello}}
 
+      <div class="boxes">
+          <div class="box animated">box</div>
+          <div class="box animated">box</div>
+          <div class="box animated">box</div>
+          <div class="box animated">box</div>
+          <div class="box animated">box</div>
+          <div class="box animated">box</div>
         </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
